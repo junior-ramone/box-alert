@@ -1,0 +1,94 @@
+<!DOCTYPE HTML!>
+<html lang="pt-br">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>jQuery boxAlert example</title>
+	<style type="text/css">
+		/* css reset */
+		* {
+			margin:0;
+			padding:0;
+			list-style:none;
+			text-decoration:none;
+		}
+		img{ border:0 }
+		a:hover, a:active, a:focus { outline: 0; }
+		ul li { margin-bottom:3px; }
+		/* fim css reset */
+		h1, h2, h3 { color:#669966; font-weight: normal; }
+		body{ 
+			background: url(texture.jpg) repeat;
+			font-family: "Segoe Ui", "Calibri", "Trebuchet MS";
+			font-size: 14px;	
+			color:#444;
+		}
+		input{ 
+			padding:5px 10px 5px 10px;
+			width:180px;
+		}
+		input[type="button"], input[type="reset"], input[type="submit"] {
+			padding:3px 20px 3px 20px;
+			width: auto;
+		}
+		#wraper{
+			width:900px;
+			margin:0 auto;
+		}
+		#main{
+			margin: 30px 0px;
+			min-height:900px;
+			box-shadow:0 0 10px 3px #ccc;
+			padding:20px;
+		}
+		#footer{
+			min-height:400px;			
+			box-shadow:0 0 10px 3px #ccc;	
+			padding:20px;			
+		}
+		fieldset{ 
+			padding:10px;
+			border-radius:5px;
+			border:1px solid #ccc;
+		}
+	</style>
+	<!-- Using CDN of Google with fallback to local file -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>	
+	<script>window.jQuery || document.write(unescape('%3Cscript src="jquery-1.8.2.min.js"%3E%3C/script%3E'))</script>
+	<!-- Begin of boxAlert's references -->
+	<script src="jquery.boxAlert.js"></script>
+	<link rel="stylesheet" type="text/css" href="jquery.boxAlert.css" />
+	<!-- End of boxAlert's references -->
+	<script type="text/javascript">		
+		$(document).ready(function(){
+			$('.exibir').click(function(){
+				$('#cadastro').boxAlert('This field is required!', { type: 'warning', mode: 'prepend' });
+			});
+			$('.limpar').click(function(){
+				$.clearBoxAlert(true);
+			});
+		});
+	</script>
+</head>
+<body>
+	<div id="wraper">
+		<div id="main">		
+			<h2>Testes para o boxAlert </h2><br />
+			<div style="height:250px;"></div>
+			<fieldset id="cadastro">
+				<ul>
+					<li><input type="text" class="empty-fields" id="name" /></li>
+					<li><input type="text" class="empty-fields" id="email" /></li>
+					<li><input type="password" class="empty-fields" id="password" /></li>
+				</ul>
+			</fieldset>
+			<br />
+			<input type="button" value="Exibir Mensagem" class="exibir">
+			<input type="button" value="Remover Todas" class="limpar">
+		</div>
+		<div id="footer">
+			<input type="button" value="Exibir Mensagem" class="exibir">
+			<input type="button" value="Remover Todas" class="limpar">
+		</div>
+	</div>
+</body>
+</html>
